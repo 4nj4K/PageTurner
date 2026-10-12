@@ -127,7 +127,7 @@ addBookForm.addEventListener('submit', async (e) => {
         author: document.getElementById('author').value,
         genre: document.getElementById('genre').value || null,
         status: document.getElementById('status').value,
-        rating: document.getElementById('rating').value ? parseInt(document.getElementById('rating').value) : null
+        rating: document.getElementById('rating').value ? parseInt(document.getElementById('rating').value) : null,
         notes: document.getElementById('notes').value || null
     };
 

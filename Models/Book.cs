@@ -21,4 +21,6 @@ public class Book
     public int? Rating { get; set; }
 
     public BookStatus Status { get; set; } = BookStatus.WantToRead;
+
+    public string? Notes { get; set; }
 }

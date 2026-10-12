@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageTurner - Reading List & Book Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link href=""https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app container">
+        <!-- Header -->
+        <header class="header">
+            <h1>PageTurner</h1>
+            </div>
+            <p class="subtitle">Track your reading journey, discover insights and organize your personal library.</p>
+        </header>
+
+        <!-- Statistics Section -->
+        <section class="stats-section" id="stats-container">
+            <div class="stat-card">
+                <span class="stat-value" id="stat-total">0</span>
+                <span class="stat-label">Total Books</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-value" id="stat-finished">0</span>
+                <span class="stat-label">Finished</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-value" id="stat-reading">0</span>
+                <span class="stat-label">Currently Reading</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-value" id="stat-want">0</span>
+                <span class="stat-label">Want to Read</span>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-value" id="stat-avg">0</span>
+                <span class="stat-label">Avg Rating</span>
+            </div>
+        </section>
+
+        <!-- Controls Section (Search, Filter, Add Button) -->
+         <section class="controls-section">
+            <div class="search-filter-group">
+                <input type="text" id="search-input" placeholder="Search title or author..." />
+
+                <select id="status-filter">
+                    <option value="">All Statuses</option>
+                    <option value="WantToRead">Want to Read</option>
+                    <option value="Reading">Currently Reading</option>
+                    <option value="Finished">Finished</option>
+                </select>
+
+                <select id="sort-by">
+                    <option value="">Sort by: Newest</option>
+                    <option value="rating">Rating (High to Low)</option>
+                    <option value="title">Title (A-Z)</option>
+                    <option value="author">Author (A-Z)</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" id="open-modal-btn" onclick="document.getElementById('modal-overlay').classList.remove('hidden')">+ Add New Book</button>
+         </section>
+
+         <!-- Book Grid -->
+          <main class="books-grid" id="books-grid">
+            <!-- Book cards rendered dynamicallt via JS -->
+          </main>
+
+          <!-- Add Book Modal -->
+           <div class="modal-overlay hidden" id="modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h2>Add New Book</h2>
+                    <button class="close-btn" id="close-modal-btn" onclick="document.getElementById('modal-overlay').classList.add('hidden')">&times;</button>
+                </div>
+                <form id="add-book-form">
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" required placeholder="e.g. The Hobbit">
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author *</label>
+                        <input type="text" id="author" required placeholder="e.g. J.R.R. Tolkien">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="genre">Genre</label>
+                            <input type="text" id="genre" placeholder="e.g. Fantasy">
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status</label>
+                            <select id="status">
+                                <option value="WantToRead">Want to Read</option>
+                                <option value="Reading">Currently Reading</option>
+                                <option value="Finished">Finished</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating (1–5)</label>
+                        <input type="number" id="rating" min="1" max="5" placeholder="Optional rating">
+                    </div>
+                    
+                    <!-- Anteckningsfältet med rätt klasser för att ligga på linje -->
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <input type="text" id="notes" placeholder="Write a note about the book...">
+                    </div>
+                
+                    <button type="submit" class="btn btn-primary btn-full">Save Book</button>
+                </form>
+            </div>
+           </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
